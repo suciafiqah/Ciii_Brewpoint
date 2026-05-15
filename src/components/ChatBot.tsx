@@ -12,24 +12,25 @@ interface Message {
   timestamp: Date;
 }
 
-const SYSTEM_INSTRUCTION = `You are Brewy, the official AI assistant for BrewPoint. 
-BrewPoint is a customer loyalty platform specifically designed for coffee shops.
-Your tone should be professional, friendly, and helpful. You sound like a helpful coffee shop manager.
-You can answer questions about:
-1. BrewPoint Features: Customer CRM, point engine, smart rewards, deep analytics, and POS integration.
-2. Pricing: Basic (Rp850k/mo), Pro (Rp1.5M/mo), Premium (Rp2.2M/mo). Mention 20% discount for annual plans.
-3. How it works: Register -> Setup -> Add Fans -> Points -> Rewards.
-4. Support: Integrated POS (Moka, Square, Shopify), Offline support, and Customer QR check-ins.
+const SYSTEM_INSTRUCTION = `Anda adalah Brewy, asisten AI resmi untuk BrewPoint. 
+BrewPoint adalah platform loyalitas pelanggan yang dirancang khusus untuk coffee shop.
+Nada bicara Anda harus profesional, ramah, dan membantu. Anda terdengar seperti manajer coffee shop yang membantu.
+Anda dapat menjawab pertanyaan tentang:
+1. Fitur BrewPoint: CRM Pelanggan, mesin poin, hadiah cerdas, analitik mendalam, dan integrasi POS.
+2. Harga: Basic (Rp850rb/bln), Pro (Rp1.5jt/bln), Premium (Rp2.2jt/bln). Sebutkan diskon 20% untuk paket tahunan.
+3. Cara kerja: Daftar -> Setup -> Tambah Penggemar -> Poin -> Hadiah.
+4. Dukungan: POS terintegrasi (Moka, Square, Shopify), dukungan Offline, dan check-in QR Pelanggan.
 
-If a user asks about something unrelated to BrewPoint or coffee shop management, politely steer them back or mention you're here to help with their coffee business.
-Limit your responses to be concise and easy to read. Use bullet points when helpful.`;
+Jika pengguna bertanya tentang sesuatu yang tidak terkait dengan BrewPoint atau manajemen coffee shop, arahkan mereka kembali dengan sopan atau sebutkan bahwa Anda di sini untuk membantu bisnis kopi mereka.
+Batasi tanggapan Anda agar ringkas dan mudah dibaca. Gunakan poin-poin jika membantu.
+Berkomunikasilah selalu dalam Bahasa Indonesia.`;
 
 export const ChatBot = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
-      text: "Hi! I'm Brewy. How can I help you grow your coffee business today?",
+      text: "Halo! Saya Brewy. Bagaimana saya bisa membantu mengembangkan bisnis kopi Anda hari ini?",
       sender: 'bot',
       timestamp: new Date()
     }
@@ -77,7 +78,7 @@ export const ChatBot = () => {
 
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: response.text || "I'm sorry, I couldn't process that. Can you try again?",
+        text: response.text || "Maaf, saya tidak bisa memprosesnya. Bisakah Anda coba lagi?",
         sender: 'bot',
         timestamp: new Date()
       };
@@ -87,7 +88,7 @@ export const ChatBot = () => {
       console.error('Gemini Error:', error);
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: "Oops! My coffee filter is clogged. I'm having trouble connecting right now. Please try again later.",
+        text: "Ups! Filter kopi saya tersumbat. Saya sedang kesulitan terhubung sekarang. Silakan coba lagi nanti.",
         sender: 'bot',
         timestamp: new Date()
       };
@@ -115,7 +116,7 @@ export const ChatBot = () => {
                 </div>
                 <div>
                   <h3 className="font-bold text-sm">Brewy</h3>
-                  <p className="text-[10px] text-coffee-400 uppercase font-black tracking-widest">AI Porter</p>
+                  <p className="text-[10px] text-coffee-400 uppercase font-black tracking-widest">Asisten AI</p>
                 </div>
               </div>
               <button 
@@ -155,7 +156,7 @@ export const ChatBot = () => {
                 <div className="flex justify-start">
                   <div className="bg-white p-4 rounded-2xl rounded-tl-none border border-coffee-100 shadow-sm flex items-center gap-2">
                     <Loader2 size={16} className="animate-spin text-coffee-500" />
-                    <span className="text-xs text-coffee-400 font-bold uppercase tracking-widest">Brewing answer...</span>
+                    <span className="text-xs text-coffee-400 font-bold uppercase tracking-widest">Sedang meracik jawaban...</span>
                   </div>
                 </div>
               )}
@@ -169,7 +170,7 @@ export const ChatBot = () => {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-                  placeholder="Ask Brewy anything..."
+                  placeholder="Tanya Brewy apa saja..."
                   className="flex-1 bg-coffee-50/50 border border-coffee-100 rounded-xl px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-coffee-500/20 transition-all font-medium"
                 />
                 <button

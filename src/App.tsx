@@ -41,49 +41,49 @@ import { ChatBot } from './components/ChatBot';
 type Page = 'landing' | 'login' | 'register' | 'dashboard';
 
 const stats = [
-  { label: 'Total Customers', value: '1,284', change: '+12%', icon: Users, trend: 'up' },
-  { label: 'Monthly Revenue', value: 'Rp42.5M', change: '+24%', icon: BarChart3, trend: 'up' },
-  { label: 'Repeat Rate', value: '68%', change: '+8%', icon: Zap, trend: 'up' },
-  { label: 'Points Active', value: '840k', change: '-2%', icon: Coffee, trend: 'down' },
+  { label: 'Total Pelanggan', value: '1,284', change: '+12%', icon: Users, trend: 'up' },
+  { label: 'Pendapatan Bulanan', value: 'Rp42.5jt', change: '+24%', icon: BarChart3, trend: 'up' },
+  { label: 'Tingkat Retensi', value: '68%', change: '+8%', icon: Zap, trend: 'up' },
+  { label: 'Poin Aktif', value: '840rb', change: '-2%', icon: Coffee, trend: 'down' },
 ];
 
 const pricingPlans = [
   {
     title: "Basic",
     price: 850000,
-    desc: "Perfect for single cart or small coffee stands.",
-    features: ['Up to 100 Customers', 'Basic Analytics', 'Digital Point System', 'QR Code Check-in', 'Email Support'],
+    desc: "Cocok untuk gerobakan kopi atau kedai kecil.",
+    features: ['Hingga 100 Pelanggan', 'Analitik Dasar', 'Sistem Poin Digital', 'Check-in Kode QR', 'Dukungan Email'],
   },
   {
     title: "Pro",
     price: 1500000,
-    desc: "Ideal for established cafes ready to scale.",
+    desc: "Ideal untuk kafe mapan yang siap berkembang.",
     recommended: true,
-    features: ['Up to 1,000 Customers', 'Advanced CRM', 'Custom Rewards', 'WhatsApp Marketing', 'Priority Support', 'Daily Backups'],
+    features: ['Hingga 1.000 Pelanggan', 'CRM Lanjutan', 'Hadiah Kustom', 'Pemasaran WhatsApp', 'Dukungan Prioritas', 'Cadangan Harian'],
   },
   {
     title: "Premium",
     price: 2200000,
-    desc: "For multi-branch & franchise coffee businesses.",
-    features: ['Unlimited Customers', 'Multi-outlet Support', 'POS System Integration', 'Dedicated Manager', 'API & Webhooks', 'Custom Branding'],
+    desc: "Untuk bisnis kopi multi-cabang & waralaba.",
+    features: ['Pelanggan Tanpa Batas', 'Dukungan Multi-outlet', 'Integrasi Sistem POS', 'Manajer Khusus', 'API & Webhooks', 'Branding Kustom'],
   },
 ];
 
 const faqs = [
-  { q: "How do customers check in?", a: "Customers can simply scan a unique QR code at your counter or provide their phone number to the cashier." },
-  { q: "Does it work offline?", a: "Yes, our system caches transaction data and syncs automatically when you're back online." },
-  { q: "Can I integrate with my POS?", a: "Absolutely! We support major POS systems like Moka, Square, and Shopify POS." },
-  { q: "Is there a free trial?", a: "Yes, we offer a 14-day full feature trial with no credit card required." },
+  { q: "Bagaimana cara pelanggan check-in?", a: "Pelanggan cukup memindai kode QR unik di counter Anda atau memberikan nomor telepon mereka ke kasir." },
+  { q: "Apakah ini berfungsi offline?", a: "Ya, sistem kami menyimpan data transaksi secara lokal dan akan disinkronkan secara otomatis setelah Anda online kembali." },
+  { q: "Dapatkah saya berintegrasi dengan POS saya?", a: "Tentu saja! Kami mendukung sistem POS besar seperti Moka, Square, dan Shopify POS." },
+  { q: "Apakah ada uji coba gratis?", a: "Ya, kami menawarkan uji coba fitur lengkap selama 14 hari tanpa memerlukan kartu kredit." },
 ];
 
 const chartData = [
-  { name: 'Mon', points: 4000, transactions: 240 },
-  { name: 'Tue', points: 3000, transactions: 139 },
-  { name: 'Wed', points: 2000, transactions: 980 },
-  { name: 'Thu', points: 2780, transactions: 390 },
-  { name: 'Fri', points: 1890, transactions: 480 },
-  { name: 'Sat', points: 2390, transactions: 380 },
-  { name: 'Sun', points: 3490, transactions: 430 },
+  { name: 'Sen', points: 4000, transactions: 240 },
+  { name: 'Sel', points: 3000, transactions: 139 },
+  { name: 'Rab', points: 2000, transactions: 980 },
+  { name: 'Kam', points: 2780, transactions: 390 },
+  { name: 'Jum', points: 1890, transactions: 480 },
+  { name: 'Sab', points: 2390, transactions: 380 },
+  { name: 'Min', points: 3490, transactions: 430 },
 ];
 
 // --- Components ---
@@ -112,19 +112,19 @@ const Navbar = ({ onNavigate, currentPage }: { onNavigate: (p: Page) => void, cu
         </div>
 
         <div className="hidden md:flex items-center gap-8">
-          <a href="#features" className="text-coffee-700 hover:text-coffee-900 font-medium transition-colors">Features</a>
-          <a href="#pricing" className="text-coffee-700 hover:text-coffee-900 font-medium transition-colors">Pricing</a>
+          <a href="#features" className="text-coffee-700 hover:text-coffee-900 font-medium transition-colors">Fitur</a>
+          <a href="#pricing" className="text-coffee-700 hover:text-coffee-900 font-medium transition-colors">Harga</a>
           <button 
             onClick={() => onNavigate('login')}
             className="text-coffee-800 font-semibold hover:text-coffee-600 transition-colors"
           >
-            Login
+            Masuk
           </button>
           <button 
             onClick={() => onNavigate('register')}
             className="bg-coffee-800 text-white px-6 py-2.5 rounded-full font-semibold hover:bg-coffee-900 transition-all shadow-md hover:shadow-lg active:scale-95"
           >
-            Try for Free
+            Coba Gratis
           </button>
         </div>
 
@@ -231,7 +231,7 @@ const LandingPage = ({ onNavigate }: { onNavigate: (p: Page) => void }) => {
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-coffee-100 text-coffee-800 text-sm font-semibold mb-6 border border-coffee-200"
           >
             <Zap size={16} fill="currentColor" />
-            <span>Digital Loyalty, Simplified</span>
+            <span>Loyalty Digital yang Sederhana</span>
           </motion.div>
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
@@ -239,7 +239,7 @@ const LandingPage = ({ onNavigate }: { onNavigate: (p: Page) => void }) => {
             transition={{ delay: 0.1 }}
             className="text-5xl md:text-7xl font-display font-black leading-[1.1] mb-6 text-coffee-950"
           >
-            Sip Coffee, <span className="text-coffee-500 italic">Earn Points.</span>
+            Minum Kopi, <span className="text-coffee-500 italic">Dapat Poin.</span>
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -247,7 +247,7 @@ const LandingPage = ({ onNavigate }: { onNavigate: (p: Page) => void }) => {
             transition={{ delay: 0.2 }}
             className="text-lg md:text-xl text-coffee-700 mb-10 max-w-xl mx-auto lg:mx-0 leading-relaxed"
           >
-            The all-in-one digital loyalty solution designed for modern coffee shops. Boost customer retention and drive sales with zero friction.
+            Solusi loyalitas digital all-in-one yang dirancang untuk coffee shop modern. Tingkatkan retensi pelanggan dan penjualan tanpa hambatan.
           </motion.p>
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -259,13 +259,13 @@ const LandingPage = ({ onNavigate }: { onNavigate: (p: Page) => void }) => {
               onClick={() => onNavigate('register')}
               className="bg-coffee-800 text-white px-8 py-4 rounded-2xl text-lg font-bold hover:bg-coffee-900 transition-all shadow-xl hover:shadow-coffee-300 inline-flex items-center gap-2 group w-full sm:w-auto justify-center"
             >
-              Try for Free <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              Coba Gratis <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </button>
             <button 
               onClick={() => onNavigate('dashboard')}
               className="bg-white border-2 border-coffee-100 text-coffee-800 px-8 py-4 rounded-2xl text-lg font-bold hover:border-coffee-300 transition-all shadow-sm w-full sm:w-auto"
             >
-              View Demo
+              Lihat Demo
             </button>
           </motion.div>
           <motion.div 
@@ -281,7 +281,7 @@ const LandingPage = ({ onNavigate }: { onNavigate: (p: Page) => void }) => {
                 </div>
               ))}
             </div>
-            <p className="text-sm text-coffee-600 font-medium font-display">Joined by 500+ coffee shops</p>
+            <p className="text-sm text-coffee-600 font-medium font-display">Bergabung dengan 500+ coffee shop</p>
           </motion.div>
         </div>
         
@@ -306,11 +306,11 @@ const LandingPage = ({ onNavigate }: { onNavigate: (p: Page) => void }) => {
                   <Star size={20} fill="currentColor" />
                 </div>
                 <div>
-                  <p className="text-xs font-bold text-coffee-950 uppercase tracking-tighter">New Loyalty Point</p>
-                  <p className="text-sm font-display font-medium text-coffee-800">+25 pts awarded to Andi</p>
+                  <p className="text-xs font-bold text-coffee-950 uppercase tracking-tighter">Poin Loyalitas Baru</p>
+                  <p className="text-sm font-display font-medium text-coffee-800">+25 poin diberikan kepada Andi</p>
                 </div>
               </div>
-              <div className="bg-green-500/10 text-green-600 text-[10px] font-black px-2 py-1 rounded-lg">LIVE</div>
+              <div className="bg-green-500/10 text-green-600 text-[10px] font-black px-2 py-1 rounded-lg">LANGSUNG</div>
             </div>
           </div>
         </motion.div>
@@ -318,7 +318,7 @@ const LandingPage = ({ onNavigate }: { onNavigate: (p: Page) => void }) => {
 
         {/* Trusted By Logo Bar */}
         <div className="max-w-7xl mx-auto px-6 py-20 border-t border-coffee-100/50">
-          <p className="text-center text-xs font-bold text-coffee-400 uppercase tracking-[0.2em] mb-10">Trusted by leading roasters & cafes</p>
+          <p className="text-center text-xs font-bold text-coffee-400 uppercase tracking-[0.2em] mb-10">Dipercaya oleh roaster & cafe terkemuka</p>
           <div className="flex flex-wrap justify-center items-center gap-10 md:gap-20 opacity-40 grayscale hover:grayscale-0 transition-all duration-700">
              {['RoastMasters', 'Velvet Brew', 'Urban Cup', 'Morning Dew', 'The Grind'].map(logo => (
                <div key={logo} className="font-display font-black text-2xl text-coffee-950 italic tracking-tighter">
@@ -340,19 +340,19 @@ const LandingPage = ({ onNavigate }: { onNavigate: (p: Page) => void }) => {
           <div className="absolute inset-0 bg-gradient-to-r from-coffee-950/80 via-coffee-950/40 to-transparent"></div>
           <div className="relative z-10 px-12 md:px-20 max-w-2xl">
             <h2 className="text-4xl md:text-6xl font-display font-black text-white mb-6 leading-tight">
-              Designed for the <span className="text-coffee-300">Modern Barista.</span>
+              Dirancang untuk <span className="text-coffee-300">Barista Modern.</span>
             </h2>
             <p className="text-coffee-100 text-lg mb-8 leading-relaxed">
-              We understand that speed is everything behind the counter. BrewPoint's interface is optimized for high-traffic cafes, ensuring you spend less time on the screen and more time crafting the perfect cup.
+              Kami memahami bahwa kecepatan adalah segalanya di balik meja counter. Antarmuka BrewPoint dioptimalkan untuk kafe dengan trafik tinggi, memastikan Anda menghabiskan lebih sedikit waktu di layar dan lebih banyak waktu meracik kopi yang sempurna.
             </p>
             <div className="flex flex-wrap gap-4">
               <div className="glass px-6 py-3 rounded-2xl text-white font-bold flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-green-400"></div>
-                Fast Checkout
+                Checkout Cepat
               </div>
               <div className="glass px-6 py-3 rounded-2xl text-white font-bold flex items-center gap-2">
                 <div className="w-2 h-2 rounded-full bg-coffee-400"></div>
-                Offline Support
+                Dukungan Offline
               </div>
             </div>
           </div>
@@ -369,46 +369,46 @@ const LandingPage = ({ onNavigate }: { onNavigate: (p: Page) => void }) => {
               whileInView={{ opacity: 1 }}
               className="text-coffee-500 font-bold tracking-widest uppercase text-xs"
             >
-              Powerful Features
+              Fitur Unggulan
             </motion.span>
-            <h2 className="text-4xl md:text-6xl font-display font-black text-coffee-950 mt-4 mb-6">Built for <span className="text-gradient">Scale.</span></h2>
-            <p className="text-coffee-600 text-xl max-w-3xl mx-auto font-medium">From single carts to multinational coffee chains, BrewPoint provides the enterprise-grade tools you need.</p>
+            <h2 className="text-4xl md:text-6xl font-display font-black text-coffee-950 mt-4 mb-6">Dirancang untuk <span className="text-gradient">Skala Besar.</span></h2>
+            <p className="text-coffee-600 text-xl max-w-3xl mx-auto font-medium">Dari kedai kopi kecil hingga jaringan kopi multinasional, BrewPoint menyediakan alat kelas perusahaan yang Anda butuhkan.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <FeatureCard 
               icon={Users} 
-              title="Advanced CRM" 
-              desc="Deep dive into customer behavior, order history, and individual taste profiles."
+              title="CRM Lanjutan" 
+              desc="Pelajari perilaku pelanggan, riwayat pesanan, dan profil selera individu secara mendalam."
               delay={0}
             />
             <FeatureCard 
               icon={Zap} 
-              title="Point Engine" 
-              desc="Automatic tiered rewards based on purchase frequency and average basket size."
+              title="Mesin Poin" 
+              desc="Hadiah berjenjang otomatis berdasarkan frekuensi pembelian dan rata-rata belanja."
               delay={0.1}
             />
             <FeatureCard 
               icon={BarChart3} 
-              title="Predictive Analytics" 
-              desc="AI-driven insights on future sales trends and inventory requirements."
+              title="Analitik Prediktif" 
+              desc="Wawasan berbasis AI tentang tren penjualan masa depan dan kebutuhan inventaris."
               delay={0.2}
             />
             <FeatureCard 
               icon={Gift} 
-              title="Reward Engine" 
-              desc="Create dynamic rewards: from free shots to exclusive merchandise and private events."
+              title="Sistem Hadiah" 
+              desc="Buat hadiah dinamis: dari espresso gratis hingga merchandise eksklusif."
               delay={0.3}
             />
             <FeatureCard 
               icon={Star} 
-              title="VIP Membership" 
-              desc="Automated Silver, Gold, and Platinum tiers with exclusive benefit management."
+              title="Membership VIP" 
+              desc="Manajemen otomatis tingkatan Silver, Gold, dan Platinum dengan keuntungan eksklusif."
               delay={0.4}
             />
             <FeatureCard 
               icon={Settings} 
-              title="POS Integration" 
-              desc="Seamlessly sync with Shopify, Moka, Square, and your existing cashier systems."
+              title="Integrasi POS" 
+              desc="Sinkronisasi mulus dengan Shopify, Moka, Square, dan sistem kasir Anda saat ini."
               delay={0.5}
             />
           </div>
@@ -418,15 +418,15 @@ const LandingPage = ({ onNavigate }: { onNavigate: (p: Page) => void }) => {
       {/* How it Works - Business Centric */}
       <section className="px-6 py-32 max-w-7xl mx-auto">
         <div className="text-center mb-24">
-          <h2 className="text-4xl md:text-6xl font-display font-black text-coffee-950 mb-6">Efficiency in <span className="text-gradient">Every Step.</span></h2>
-          <p className="text-coffee-600">A streamlined workflow that respects your speed during peak hours.</p>
+          <h2 className="text-4xl md:text-6xl font-display font-black text-coffee-950 mb-6">Efisiensi dalam <span className="text-gradient">Setiap Langkah.</span></h2>
+          <p className="text-coffee-600">Alur kerja yang disederhanakan untuk menghargai kecepatan Anda pada jam-jam sibuk.</p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 relative">
           <div className="absolute top-1/2 left-0 w-full h-0.5 bg-coffee-100 -translate-y-1/2 hidden lg:block -z-10"></div>
           {[
-            { step: '01', title: 'Onboard Shop', desc: 'Register your outlets and upload your logo and menu items.' },
-            { step: '02', title: 'Connect POS', desc: 'Sync with your cashier with one-click integration or use our QR system.' },
-            { step: '03', title: 'Automate Loyalty', desc: 'Set your rules and watch the system handle engagement independently.' },
+            { step: '01', title: 'Daftar Toko', desc: 'Daftarkan cabang Anda dan unggah logo serta menu Anda.' },
+            { step: '02', title: 'Hubungkan POS', desc: 'Sinkronkan dengan kasir Anda dengan integrasi satu klik atau gunakan sistem QR kami.' },
+            { step: '03', title: 'Otomatisasi Loyalitas', desc: 'Atur aturan Anda dan biarkan sistem menangani interaksi secara mandiri.' },
           ].map((item, i) => (
             <motion.div 
               key={i}
@@ -451,11 +451,11 @@ const LandingPage = ({ onNavigate }: { onNavigate: (p: Page) => void }) => {
         <div className="absolute inset-0 bg-checkered opacity-10"></div>
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-6xl font-display font-black mb-8 italic">Choose your <span className="text-coffee-400">Perfect Blend.</span></h2>
+            <h2 className="text-4xl md:text-6xl font-display font-black mb-8 italic">Pilih <span className="text-coffee-400">Racikan Terbaikmu.</span></h2>
             
             {/* Annual Toggle */}
             <div className="flex items-center justify-center gap-4 mb-12">
-              <span className={cn("text-lg font-bold", !isAnnual ? "text-white" : "text-coffee-500")}>Monthly</span>
+              <span className={cn("text-lg font-bold", !isAnnual ? "text-white" : "text-coffee-500")}>Bulanan</span>
               <button 
                 onClick={() => setIsAnnual(!isAnnual)}
                 className="w-16 h-8 rounded-full bg-coffee-800 p-1 relative transition-all"
@@ -466,8 +466,8 @@ const LandingPage = ({ onNavigate }: { onNavigate: (p: Page) => void }) => {
                 )}></div>
               </button>
               <div className="flex items-center gap-2">
-                <span className={cn("text-lg font-bold", isAnnual ? "text-white" : "text-coffee-500")}>Annual</span>
-                <span className="bg-coffee-500 text-white text-[10px] font-black px-2 py-0.5 rounded-full">SAVE 20%</span>
+                <span className={cn("text-lg font-bold", isAnnual ? "text-white" : "text-coffee-500")}>Tahunan</span>
+                <span className="bg-coffee-500 text-white text-[10px] font-black px-2 py-0.5 rounded-full">HEMAT 20%</span>
               </div>
             </div>
           </div>
@@ -493,15 +493,15 @@ const LandingPage = ({ onNavigate }: { onNavigate: (p: Page) => void }) => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <span className="text-coffee-500 font-bold tracking-widest uppercase text-xs">Customer Experience</span>
-            <h2 className="text-4xl md:text-6xl font-display font-black text-coffee-950 mt-4 mb-8">A Wallet they actually <span className="text-gradient underline italic">Keep.</span></h2>
+            <span className="text-coffee-500 font-bold tracking-widest uppercase text-xs">Pengalaman Pelanggan</span>
+            <h2 className="text-4xl md:text-6xl font-display font-black text-coffee-950 mt-4 mb-8">Kartu yang Selalu <span className="text-gradient underline italic">Mereka Simpan.</span></h2>
             <p className="text-coffee-700 text-lg mb-10 leading-relaxed">
-              Ditch the physical cards. BrewPoint provides a stunning mobile card experience for your customers. They track points, browse rewards, and receive push notifications for special offers—all in one place.
+              Tinggalkan kartu fisik. BrewPoint menyediakan pengalaman kartu seluler yang menawan untuk pelanggan Anda. Mereka dapat melacak poin, melihat hadiah, dan menerima notifikasi push untuk penawaran khusus—semuanya di satu tempat.
             </p>
             <div className="space-y-6">
               {[
-                { title: 'No App Download Required', desc: 'Works via web browser or Apple/Google Wallet integration.' },
-                { title: 'Instant Reward Redemption', desc: 'Customers can redeem rewards with a single tap at the counter.' }
+                { title: 'Tidak Perlu Unduh Aplikasi', desc: 'Bekerja melalui browser web atau integrasi Apple/Google Wallet.' },
+                { title: 'Penukaran Hadiah Instan', desc: 'Pelanggan dapat menukarkan hadiah dengan satu ketukan di counter.' }
               ].map((item, i) => (
                 <div key={i} className="flex gap-4">
                   <div className="w-12 h-12 shrink-0 rounded-2xl bg-white shadow-sm flex items-center justify-center text-coffee-800">
@@ -531,19 +531,19 @@ const LandingPage = ({ onNavigate }: { onNavigate: (p: Page) => void }) => {
                     <Coffee size={24} />
                     <div className="w-8 h-8 rounded-full bg-white/20"></div>
                   </div>
-                  <p className="text-xs uppercase tracking-widest font-black text-coffee-300">Member Status</p>
-                  <h3 className="text-2xl font-display font-bold">Gold Tier</h3>
+                  <p className="text-xs uppercase tracking-widest font-black text-coffee-300">Status Member</p>
+                  <h3 className="text-2xl font-display font-bold">Tingkat Gold</h3>
                   <div className="mt-8 bg-white/10 p-4 rounded-2xl border border-white/10">
-                    <p className="text-[10px] uppercase font-bold mb-1">Your Balance</p>
-                    <p className="text-3xl font-black italic">2,450 <span className="text-xs font-normal not-italic opacity-60">pts</span></p>
+                    <p className="text-[10px] uppercase font-bold mb-1">Saldo Anda</p>
+                    <p className="text-3xl font-black italic">2,450 <span className="text-xs font-normal not-italic opacity-60">poin</span></p>
                   </div>
                 </div>
                 <div className="p-6 space-y-4 flex-1">
-                  <h4 className="font-bold text-coffee-900 text-sm">Available Rewards</h4>
+                  <h4 className="font-bold text-coffee-900 text-sm">Hadiah Tersedia</h4>
                   {[
-                    { title: 'Free Espresso Shot', cost: '500 pts', icon: Coffee },
-                    { title: 'Avocado Toast Box', cost: '1,200 pts', icon: Gift },
-                    { title: 'VIP Tasting Event', cost: '2,500 pts', icon: Star },
+                    { title: 'Extra Espresso Shot', cost: '500 poin', icon: Coffee },
+                    { title: 'Kotak Roti Alpukat', cost: '1,200 poin', icon: Gift },
+                    { title: 'Acara Tasting VIP', cost: '2,500 poin', icon: Star },
                   ].map((reward, i) => (
                     <div key={i} className="flex items-center gap-3 p-3 rounded-xl bg-coffee-50 border border-coffee-100/50">
                       <div className="w-8 h-8 rounded-lg bg-white flex items-center justify-center text-coffee-800 shadow-sm">
@@ -553,7 +553,7 @@ const LandingPage = ({ onNavigate }: { onNavigate: (p: Page) => void }) => {
                         <p className="text-xs font-bold text-coffee-900">{reward.title}</p>
                         <p className="text-[10px] text-coffee-500">{reward.cost}</p>
                       </div>
-                      <button className="bg-coffee-950 text-white text-[10px] font-bold px-3 py-1 rounded-lg">Redeem</button>
+                      <button className="bg-coffee-950 text-white text-[10px] font-bold px-3 py-1 rounded-lg">Tukar</button>
                     </div>
                   ))}
                 </div>
@@ -562,7 +562,7 @@ const LandingPage = ({ onNavigate }: { onNavigate: (p: Page) => void }) => {
                    <div className="w-24 h-24 bg-white mx-auto rounded-xl border-4 border-coffee-900 flex items-center justify-center mb-2">
                      <Zap size={40} className="text-coffee-950" />
                    </div>
-                   <p className="text-[10px] font-bold text-coffee-400">Scan at Counter</p>
+                   <p className="text-[10px] font-bold text-coffee-400">Scan di Counter</p>
                 </div>
               </div>
             </div>
@@ -576,7 +576,7 @@ const LandingPage = ({ onNavigate }: { onNavigate: (p: Page) => void }) => {
                 <div className="bg-green-500 p-2 rounded-lg text-white">
                   <Check size={16} />
                 </div>
-                <p className="text-xs font-bold text-coffee-900 whitespace-nowrap">Points Updated!</p>
+                <p className="text-xs font-bold text-coffee-900 whitespace-nowrap">Poin Diperbarui!</p>
               </div>
             </motion.div>
           </motion.div>
@@ -584,13 +584,13 @@ const LandingPage = ({ onNavigate }: { onNavigate: (p: Page) => void }) => {
       </section>
       <section className="px-6 py-24 max-w-7xl mx-auto overflow-hidden">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-display font-black text-coffee-950">Trusted by Baristas Worldwide</h2>
+          <h2 className="text-3xl font-display font-black text-coffee-950">Dipercaya oleh Barista di Seluruh Dunia</h2>
         </div>
         <div className="flex flex-wrap justify-center gap-8">
           {[
-            { name: "Andi R.", shop: "Bean Haven", text: "BrewPoint increased our repeat visits by 40% in just two months!" },
-            { name: "Sarah K.", shop: "The Daily Grind", text: "Finally, a loyalty app that my customers actually enjoy using. So clean." },
-            { name: "Devin M.", shop: "Caffeine Lab", text: "The analytics revealed that our 3 PM rush was our best growth opportunity." }
+            { name: "Andi R.", shop: "Kedai Kopi Kenangan", text: "BrewPoint meningkatkan kunjungan berulang kami sebesar 40% hanya dalam dua bulan!" },
+            { name: "Sarah K.", shop: "Filosofi Kopi", text: "Akhirnya, aplikasi loyalitas yang benar-benar dinikmati pelanggan saya. Sangat bersih." },
+            { name: "Devin M.", shop: "Janji Jiwa", text: "Analitik mengungkapkan bahwa lonjakan jam 3 sore adalah peluang pertumbuhan terbaik kami." }
           ].map((t, i) => (
             <motion.div 
               key={i}
@@ -617,13 +617,13 @@ const LandingPage = ({ onNavigate }: { onNavigate: (p: Page) => void }) => {
       <section className="px-6 py-20">
         <div className="max-w-5xl mx-auto rounded-[3rem] bg-gradient-to-br from-coffee-800 to-coffee-950 p-12 md:p-20 text-center relative overflow-hidden shadow-2xl">
           <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-          <h2 className="text-3xl md:text-5xl font-display font-black text-white mb-6 relative z-10">Start Increasing Customer Loyalty Now</h2>
-          <p className="text-coffee-200 mb-10 text-lg relative z-10">Join 500+ coffee shops building better businesses.</p>
+          <h2 className="text-3xl md:text-5xl font-display font-black text-white mb-6 relative z-10">Mulai Tingkatkan Loyalitas Pelanggan Sekarang</h2>
+          <p className="text-coffee-200 mb-10 text-lg relative z-10">Bergabung dengan 500+ coffee shop yang membangun bisnis lebih baik.</p>
           <button 
             onClick={() => onNavigate('register')}
             className="bg-white text-coffee-950 px-10 py-4 rounded-2xl text-xl font-black hover:bg-coffee-100 transition-all shadow-xl active:scale-95"
           >
-            Get Started for Free
+            Mulai Gratis Sekarang
           </button>
         </div>
       </section>
@@ -636,26 +636,26 @@ const LandingPage = ({ onNavigate }: { onNavigate: (p: Page) => void }) => {
               <Coffee className="text-coffee-800" />
               <span className="text-xl font-display font-bold text-coffee-950">BrewPoint</span>
             </div>
-            <p className="text-sm text-coffee-600 leading-relaxed">Modern digital loyalty solution for today's coffee shop owners.</p>
+            <p className="text-sm text-coffee-600 leading-relaxed">Solusi loyalitas digital modern untuk pemilik coffee shop masa kini.</p>
           </div>
           <div>
-            <h5 className="font-bold mb-4 text-coffee-900">Product</h5>
+            <h5 className="font-bold mb-4 text-coffee-900">Produk</h5>
             <ul className="text-sm text-coffee-600 space-y-2">
-              <li><a href="#" className="hover:text-coffee-800 transition-colors">Features</a></li>
-              <li><a href="#" className="hover:text-coffee-800 transition-colors">Pricing</a></li>
+              <li><a href="#" className="hover:text-coffee-800 transition-colors">Fitur</a></li>
+              <li><a href="#" className="hover:text-coffee-800 transition-colors">Harga</a></li>
               <li><a href="#" className="hover:text-coffee-800 transition-colors">Demo</a></li>
             </ul>
           </div>
           <div>
-            <h5 className="font-bold mb-4 text-coffee-900">Company</h5>
+            <h5 className="font-bold mb-4 text-coffee-900">Perusahaan</h5>
             <ul className="text-sm text-coffee-600 space-y-2">
-              <li><a href="#" className="hover:text-coffee-800 transition-colors">About Us</a></li>
-              <li><a href="#" className="hover:text-coffee-800 transition-colors">Careers</a></li>
-              <li><a href="#" className="hover:text-coffee-800 transition-colors">Contact</a></li>
+              <li><a href="#" className="hover:text-coffee-800 transition-colors">Tentang Kami</a></li>
+              <li><a href="#" className="hover:text-coffee-800 transition-colors">Karir</a></li>
+              <li><a href="#" className="hover:text-coffee-800 transition-colors">Kontak</a></li>
             </ul>
           </div>
           <div>
-            <h5 className="font-bold mb-4 text-coffee-900">Social</h5>
+            <h5 className="font-bold mb-4 text-coffee-900">Sosial</h5>
             <div className="flex gap-4 items-center">
               {[1, 2, 3, 4].map(i => (
                 <div key={i} className="w-8 h-8 rounded-full bg-coffee-100 flex items-center justify-center text-coffee-800 hover:bg-coffee-800 hover:text-white transition-all cursor-pointer">
@@ -666,10 +666,10 @@ const LandingPage = ({ onNavigate }: { onNavigate: (p: Page) => void }) => {
           </div>
         </div>
         <div className="text-sm text-coffee-500 border-t border-coffee-50 pt-8 mt-8 text-center flex flex-col md:flex-row justify-between gap-4">
-          <p>© 2026 BrewPoint. All rights reserved.</p>
+          <p>© 2026 BrewPoint. Hak Cipta Dilindungi.</p>
           <div className="flex gap-6 justify-center">
-            <a href="#" className="underline">Privacy Policy</a>
-            <a href="#" className="underline">Terms of Service</a>
+            <a href="#" className="underline">Kebijakan Privasi</a>
+            <a href="#" className="underline">Syarat Layanan</a>
           </div>
         </div>
       </footer>
@@ -690,42 +690,42 @@ const AuthPage = ({ type, onNavigate }: { type: 'login' | 'register', onNavigate
             <Coffee size={32} />
           </div>
           <h2 className="text-3xl font-display font-black text-coffee-950">
-            {type === 'login' ? 'Welcome Back' : 'Create Account'}
+            {type === 'login' ? 'Selamat Datang Kembali' : 'Buat Akun'}
           </h2>
           <p className="text-coffee-600 mt-2">
-            {type === 'login' ? 'Perfect cup is waiting for you.' : 'Start your journey with BrewPoint today.'}
+            {type === 'login' ? 'Kopi sempurna menanti Anda.' : 'Mulai perjalanan Anda dengan BrewPoint hari ini.'}
           </p>
         </div>
         
         <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); onNavigate('dashboard'); }}>
           {type === 'register' && (
             <div>
-              <label className="block text-sm font-semibold text-coffee-700 mb-1.5 ml-1">Shop Name</label>
-              <input type="text" placeholder="The Coffee Club" className="w-full px-5 py-3 rounded-2xl border border-coffee-200 focus:outline-none focus:ring-2 focus:ring-coffee-500 focus:border-transparent transition-all" />
+              <label className="block text-sm font-semibold text-coffee-700 mb-1.5 ml-1">Nama Toko</label>
+              <input type="text" placeholder="Kedai Kopi Kita" className="w-full px-5 py-3 rounded-2xl border border-coffee-200 focus:outline-none focus:ring-2 focus:ring-coffee-500 focus:border-transparent transition-all" />
             </div>
           )}
           <div>
-            <label className="block text-sm font-semibold text-coffee-700 mb-1.5 ml-1">Email Address</label>
-            <input type="email" placeholder="owner@brewview.com" className="w-full px-5 py-3 rounded-2xl border border-coffee-200 focus:outline-none focus:ring-2 focus:ring-coffee-500 focus:border-transparent transition-all" />
+            <label className="block text-sm font-semibold text-coffee-700 mb-1.5 ml-1">Alamat Email</label>
+            <input type="email" placeholder="pemilik@kafe.com" className="w-full px-5 py-3 rounded-2xl border border-coffee-200 focus:outline-none focus:ring-2 focus:ring-coffee-500 focus:border-transparent transition-all" />
           </div>
           <div>
-            <label className="block text-sm font-semibold text-coffee-700 mb-1.5 ml-1">Password</label>
+            <label className="block text-sm font-semibold text-coffee-700 mb-1.5 ml-1">Kata Sandi</label>
             <input type="password" placeholder="••••••••" className="w-full px-5 py-3 rounded-2xl border border-coffee-200 focus:outline-none focus:ring-2 focus:ring-coffee-500 focus:border-transparent transition-all" />
           </div>
           
           <button className="w-full py-4 bg-coffee-800 text-white rounded-2xl font-bold text-lg hover:bg-coffee-900 transition-all shadow-lg active:scale-95 mt-4">
-            {type === 'login' ? 'Sign In' : 'Sign Up'}
+            {type === 'login' ? 'Masuk' : 'Daftar'}
           </button>
         </form>
 
         <div className="mt-8 text-center text-sm text-coffee-600">
           {type === 'login' ? (
-            <p>Don't have an account? <button onClick={() => onNavigate('register')} className="text-coffee-800 font-bold hover:underline">Register Now</button></p>
+            <p>Belum punya akun? <button onClick={() => onNavigate('register')} className="text-coffee-800 font-bold hover:underline">Daftar Sekarang</button></p>
           ) : (
-            <p>Already have an account? <button onClick={() => onNavigate('login')} className="text-coffee-800 font-bold hover:underline">Sign In</button></p>
+            <p>Sudah punya akun? <button onClick={() => onNavigate('login')} className="text-coffee-800 font-bold hover:underline">Masuk</button></p>
           )}
         </div>
-        <button onClick={() => onNavigate('landing')} className="mt-6 w-full text-sm text-coffee-500 hover:text-coffee-800 transition-colors uppercase tracking-widest font-bold">Back to Home</button>
+        <button onClick={() => onNavigate('landing')} className="mt-6 w-full text-sm text-coffee-500 hover:text-coffee-800 transition-colors uppercase tracking-widest font-bold">Kembali ke Beranda</button>
       </motion.div>
     </div>
   );
@@ -745,11 +745,11 @@ const Dashboard = ({ onNavigate }: { onNavigate: (p: Page) => void }) => {
 
         <nav className="flex-1 space-y-2">
           {[
-            { icon: LayoutDashboard, label: 'Overview', active: true },
-            { icon: Users, label: 'Customers' },
-            { icon: Gift, label: 'Rewards' },
-            { icon: BarChart3, label: 'Analytics' },
-            { icon: Settings, label: 'Settings' },
+            { icon: LayoutDashboard, label: 'Ringkasan', active: true },
+            { icon: Users, label: 'Pelanggan' },
+            { icon: Gift, label: 'Hadiah' },
+            { icon: BarChart3, label: 'Analitik' },
+            { icon: Settings, label: 'Pengaturan' },
           ].map((item, i) => (
             <button 
               key={i} 
@@ -769,7 +769,7 @@ const Dashboard = ({ onNavigate }: { onNavigate: (p: Page) => void }) => {
           className="flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold text-red-600 hover:bg-red-50 transition-all mt-auto"
         >
           <LogOut size={20} />
-          Sign Out
+          Keluar
         </button>
       </aside>
 
@@ -777,15 +777,15 @@ const Dashboard = ({ onNavigate }: { onNavigate: (p: Page) => void }) => {
       <main className="flex-1 px-4 md:px-10 py-10 max-h-screen overflow-y-auto">
         <header className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-10">
           <div>
-            <h1 className="text-3xl font-display font-black text-coffee-950">Good Morning, Brews!</h1>
-            <p className="text-coffee-600">Here's what's happening today at your shop.</p>
+            <h1 className="text-3xl font-display font-black text-coffee-950">Selamat Pagi, Brews!</h1>
+            <p className="text-coffee-600">Inilah yang terjadi hari ini di toko Anda.</p>
           </div>
           <div className="flex items-center gap-3">
             <div className="relative group">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-coffee-400 group-focus-within:text-coffee-800 transition-colors" size={20} />
               <input 
                 type="text" 
-                placeholder="Search customers..." 
+                placeholder="Cari pelanggan..." 
                 className="bg-white border text-sm border-coffee-100 px-12 py-3 rounded-2xl focus:outline-none focus:ring-2 focus:ring-coffee-500 w-full md:w-64"
               />
             </div>
@@ -798,10 +798,10 @@ const Dashboard = ({ onNavigate }: { onNavigate: (p: Page) => void }) => {
         {/* Quick Actions */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
           {[
-            { label: 'Add Transaction', icon: Zap, color: 'bg-coffee-900 text-white' },
-            { label: 'Register Customer', icon: Users, color: 'bg-white text-coffee-800 border border-coffee-100' },
-            { label: 'Create Reward', icon: Gift, color: 'bg-white text-coffee-800 border border-coffee-100' },
-            { label: 'Launch Campaign', icon: Star, color: 'bg-white text-coffee-800 border border-coffee-100' },
+            { label: 'Tambah Transaksi', icon: Zap, color: 'bg-coffee-900 text-white' },
+            { label: 'Daftar Pelanggan', icon: Users, color: 'bg-white text-coffee-800 border border-coffee-100' },
+            { label: 'Buat Hadiah', icon: Gift, color: 'bg-white text-coffee-800 border border-coffee-100' },
+            { label: 'Luncurkan Kampanye', icon: Star, color: 'bg-white text-coffee-800 border border-coffee-100' },
           ].map((action, i) => (
             <button key={i} className={cn("p-4 rounded-2xl flex flex-col items-center gap-3 transition-all hover:scale-105 active:scale-95 shadow-sm font-bold text-xs uppercase tracking-widest", action.color)}>
               <action.icon size={24} />
@@ -831,7 +831,7 @@ const Dashboard = ({ onNavigate }: { onNavigate: (p: Page) => void }) => {
                   <h3 className="text-3xl font-display font-black text-coffee-950 mt-1">{stat.value}</h3>
                   <div className="flex items-center gap-1 mt-1">
                     <span className="text-green-500 text-sm font-bold">{stat.change}</span>
-                    <span className="text-coffee-400 text-xs font-semibold">vs last month</span>
+                    <span className="text-coffee-400 text-xs font-semibold">vs bulan lalu</span>
                   </div>
                 </div>
               </div>
@@ -844,10 +844,10 @@ const Dashboard = ({ onNavigate }: { onNavigate: (p: Page) => void }) => {
           <div className="xl:col-span-2 space-y-8">
             <div className="bg-white p-8 rounded-[2.5rem] shadow-sm border border-coffee-50">
               <div className="flex items-center justify-between mb-8">
-                <h3 className="text-xl font-display font-black text-coffee-950">Earnings & Points Trend</h3>
+                <h3 className="text-xl font-display font-black text-coffee-950">Tren Pendapatan & Poin</h3>
                 <select className="bg-coffee-50 text-coffee-800 text-xs font-bold px-4 py-2 rounded-xl border-none focus:ring-2 focus:ring-coffee-500">
-                  <option>Last 7 Days</option>
-                  <option>Last 30 Days</option>
+                  <option>7 Hari Terakhir</option>
+                  <option>30 Hari Terakhir</option>
                 </select>
               </div>
               <div className="h-80 w-full">
@@ -881,13 +881,13 @@ const Dashboard = ({ onNavigate }: { onNavigate: (p: Page) => void }) => {
 
             <div className="bg-white p-8 rounded-[2.5rem] shadow-sm border border-coffee-50">
               <div className="flex items-center justify-between mb-6">
-                <h3 className="text-xl font-display font-black text-coffee-950">Active Campaigns</h3>
-                <button className="text-coffee-600 font-bold text-sm hover:text-coffee-900">Manage All</button>
+                <h3 className="text-xl font-display font-black text-coffee-950">Kampanye Aktif</h3>
+                <button className="text-coffee-600 font-bold text-sm hover:text-coffee-900">Kelola Semua</button>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {[
-                  { title: 'Morning Coffee Rush', status: 'Active', reach: '450 visits', boost: '+15%', color: 'border-l-green-500' },
-                  { title: 'Weekend Pastry Promo', status: 'Scheduled', reach: '1.2k targets', boost: 'N/A', color: 'border-l-blue-500' },
+                  { title: 'Morning Coffee Rush', status: 'Aktif', reach: '450 kunjungan', boost: '+15%', color: 'border-l-green-500' },
+                  { title: 'Weekend Pastry Promo', status: 'Terjadwal', reach: '1.2k target', boost: 'N/A', color: 'border-l-blue-500' },
                 ].map((camp, i) => (
                   <div key={i} className={cn("p-6 rounded-2xl bg-coffee-50/30 border-l-4", camp.color)}>
                     <div className="flex justify-between items-start mb-2">
@@ -896,11 +896,11 @@ const Dashboard = ({ onNavigate }: { onNavigate: (p: Page) => void }) => {
                     </div>
                     <div className="flex gap-4 mt-4">
                       <div>
-                        <p className="text-[10px] uppercase font-bold text-coffee-400">Reach</p>
+                        <p className="text-[10px] uppercase font-bold text-coffee-400">Jangkauan</p>
                         <p className="text-sm font-bold text-coffee-800">{camp.reach}</p>
                       </div>
                       <div>
-                        <p className="text-[10px] uppercase font-bold text-coffee-400">Sales Boost</p>
+                        <p className="text-[10px] uppercase font-bold text-coffee-400">Peningkatan Penjualan</p>
                         <p className="text-sm font-bold text-green-600">{camp.boost}</p>
                       </div>
                     </div>
@@ -911,16 +911,16 @@ const Dashboard = ({ onNavigate }: { onNavigate: (p: Page) => void }) => {
 
             <div className="bg-white p-8 rounded-[2.5rem] shadow-sm border border-coffee-50">
               <div className="flex items-center justify-between mb-6">
-                <h3 className="text-xl font-display font-black text-coffee-950">Recent Customers</h3>
-                <button className="text-coffee-600 font-bold text-sm hover:text-coffee-900">View All</button>
+                <h3 className="text-xl font-display font-black text-coffee-950">Pelanggan Terbaru</h3>
+                <button className="text-coffee-600 font-bold text-sm hover:text-coffee-900">Lihat Semua</button>
               </div>
               <div className="overflow-x-auto">
                 <table className="w-full text-left">
                   <thead>
                     <tr className="border-b border-coffee-50">
-                      <th className="pb-4 text-xs font-bold text-coffee-400 uppercase tracking-widest pl-2">Customer</th>
-                      <th className="pb-4 text-xs font-bold text-coffee-400 uppercase tracking-widest">Points</th>
-                      <th className="pb-4 text-xs font-bold text-coffee-400 uppercase tracking-widest text-right pr-2">Tier</th>
+                      <th className="pb-4 text-xs font-bold text-coffee-400 uppercase tracking-widest pl-2">Pelanggan</th>
+                      <th className="pb-4 text-xs font-bold text-coffee-400 uppercase tracking-widest">Poin</th>
+                      <th className="pb-4 text-xs font-bold text-coffee-400 uppercase tracking-widest text-right pr-2">Tingkat</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-coffee-50">
@@ -957,14 +957,14 @@ const Dashboard = ({ onNavigate }: { onNavigate: (p: Page) => void }) => {
 
           <div className="h-full space-y-8 pb-10">
             <div className="bg-white p-8 rounded-[2.5rem] shadow-sm border border-coffee-50">
-              <h3 className="text-xl font-display font-black text-coffee-950 mb-6">Recent Redemptions</h3>
+              <h3 className="text-xl font-display font-black text-coffee-950 mb-6">Penukaran Terbaru</h3>
               <div className="space-y-6">
                 {[
-                  { name: 'Alex Johnson', reward: 'Free Latte', time: '12 mins ago', color: 'bg-orange-100 text-orange-600' },
-                  { name: 'Siti Sarah', reward: 'Extra Shot', time: '45 mins ago', color: 'bg-brown-100 text-brown-600' },
-                  { name: 'Budi Santoso', reward: 'Pastry BOGO', time: '1 hr ago', color: 'bg-green-100 text-green-600' },
-                  { name: 'Clara Bella', reward: 'Bean Bag 250g', time: '3 hrs ago', color: 'bg-blue-100 text-blue-600' },
-                  { name: 'David Miller', reward: 'Free Latte', time: '5 hrs ago', color: 'bg-orange-100 text-orange-600' },
+                  { name: 'Alex Johnson', reward: 'Latte Gratis', time: '12 menit lalu', color: 'bg-orange-100 text-orange-600' },
+                  { name: 'Siti Sarah', reward: 'Extra Shot', time: '45 menit lalu', color: 'bg-brown-100 text-brown-600' },
+                  { name: 'Budi Santoso', reward: 'Pastry BOGO', time: '1 jam lalu', color: 'bg-green-100 text-green-600' },
+                  { name: 'Clara Bella', reward: 'Biji Kopi 250g', time: '3 jam lalu', color: 'bg-blue-100 text-blue-600' },
+                  { name: 'David Miller', reward: 'Latte Gratis', time: '5 jam lalu', color: 'bg-orange-100 text-orange-600' },
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded-2xl bg-coffee-50 flex items-center justify-center font-bold text-coffee-800">
@@ -981,16 +981,16 @@ const Dashboard = ({ onNavigate }: { onNavigate: (p: Page) => void }) => {
                 ))}
               </div>
               <button className="w-full mt-8 py-3 bg-coffee-50 text-coffee-800 font-bold rounded-2xl hover:bg-coffee-100 transition-colors text-sm">
-                View All Activity
+                Lihat Semua Aktivitas
               </button>
             </div>
             
             <div className="bg-coffee-900 p-8 rounded-[2.5rem] shadow-xl text-white relative overflow-hidden">
                <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -translate-y-1/2 translate-x-1/2"></div>
-               <h3 className="text-lg font-display font-bold mb-2">Upgrade to Pro</h3>
-               <p className="text-coffee-200 text-sm mb-6">Unlock multi-outlet support and advanced CRM tools.</p>
+               <h3 className="text-lg font-display font-bold mb-2">Upgrade ke Pro</h3>
+               <p className="text-coffee-200 text-sm mb-6">Buka dukungan multi-outlet dan alat CRM canggih.</p>
                <button className="w-full py-3 bg-white text-coffee-900 font-bold rounded-xl hover:bg-coffee-50 transition-all text-sm shadow-lg">
-                 Upgrade Now
+                 Upgrade Sekarang
                </button>
             </div>
           </div>
